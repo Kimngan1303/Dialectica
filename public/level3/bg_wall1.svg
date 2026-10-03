@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="wall1_wood" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#2a080c" />
+      <stop offset="50%" stop-color="#1a0507" />
+      <stop offset="100%" stop-color="#100305" />
+    </linearGradient>
+    <linearGradient id="wall1_gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <linearGradient id="floor_grad" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#140608" />
+      <stop offset="40%" stop-color="#220b10" />
+      <stop offset="100%" stop-color="#0a0204" />
+    </linearGradient>
+    <radialGradient id="lamp_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#f59e0b" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="f_glow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Wall -->
+  <rect width="800" height="460" fill="url(#wall1_wood)" />
+  
+  <!-- Architectural Wood Panels & Molding -->
+  <rect x="0" y="40" width="800" height="12" fill="url(#wall1_gold)" opacity="0.6" />
+  <rect x="0" y="448" width="800" height="14" fill="url(#wall1_gold)" opacity="0.7" />
+
+  <!-- Bookcases on Left & Right -->
+  <!-- Left Bookcase (x: 20 to 180) -->
+  <rect x="20" y="60" width="160" height="380" fill="#180508" stroke="url(#wall1_gold)" stroke-width="2" />
+  <!-- Shelves -->
+  <line x1="20" y1="130" x2="180" y2="130" stroke="#b45309" stroke-width="4" />
+  <line x1="20" y1="210" x2="180" y2="210" stroke="#b45309" stroke-width="4" />
+  <line x1="20" y1="290" x2="180" y2="290" stroke="#b45309" stroke-width="4" />
+  <line x1="20" y1="370" x2="180" y2="370" stroke="#b45309" stroke-width="4" />
+  <!-- Books rows -->
+  <!-- Row 1 -->
+  <rect x="30" y="80" width="16" height="50" fill="#881337" rx="2"/>
+  <rect x="48" y="75" width="22" height="55" fill="#1e1b4b" rx="2"/>
+  <rect x="72" y="82" width="18" height="48" fill="#b45309" rx="2"/>
+  <rect x="92" y="78" width="24" height="52" fill="#064e3b" rx="2"/>
+  <rect x="118" y="85" width="15" height="45" fill="#78350f" rx="2"/>
+  <rect x="135" y="76" width="30" height="54" fill="#991b1b" rx="2"/>
+  <!-- Row 2 -->
+  <rect x="30" y="150" width="28" height="60" fill="#1e293b" rx="2"/>
+  <rect x="60" y="155" width="18" height="55" fill="#881337" rx="2"/>
+  <rect x="80" y="148" width="26" height="62" fill="#78350f" rx="2"/>
+  <rect x="108" y="158" width="20" height="52" fill="#14532d" rx="2"/>
+  <rect x="130" y="152" width="36" height="58" fill="#b45309" rx="2"/>
+  <!-- Row 3 -->
+  <rect x="30" y="235" width="24" height="55" fill="#991b1b" rx="2"/>
+  <rect x="56" y="230" width="20" height="60" fill="#1e1b4b" rx="2"/>
+  <rect x="78" y="240" width="30" height="50" fill="#881337" rx="2"/>
+  <rect x="110" y="232" width="22" height="58" fill="#d97706" rx="2"/>
+  <rect x="134" y="238" width="28" height="52" fill="#164e63" rx="2"/>
+
+  <!-- Right Bookcase (x: 620 to 780) -->
+  <rect x="620" y="60" width="160" height="380" fill="#180508" stroke="url(#wall1_gold)" stroke-width="2" />
+  <line x1="620" y1="130" x2="780" y2="130" stroke="#b45309" stroke-width="4" />
+  <line x1="620" y1="210" x2="780" y2="210" stroke="#b45309" stroke-width="4" />
+  <line x1="620" y1="290" x2="780" y2="290" stroke="#b45309" stroke-width="4" />
+  <line x1="620" y1="370" x2="780" y2="370" stroke="#b45309" stroke-width="4" />
+  <!-- Right books -->
+  <rect x="630" y="78" width="22" height="52" fill="#881337" rx="2"/>
+  <rect x="654" y="82" width="28" height="48" fill="#b45309" rx="2"/>
+  <rect x="684" y="75" width="18" height="55" fill="#1e1b4b" rx="2"/>
+  <rect x="704" y="80" width="25" height="50" fill="#0f766e" rx="2"/>
+  <rect x="731" y="84" width="32" height="46" fill="#78350f" rx="2"/>
+  <rect x="630" y="152" width="25" height="58" fill="#1e293b" rx="2"/>
+  <rect x="657" y="148" width="30" height="62" fill="#991b1b" rx="2"/>
+  <rect x="689" y="155" width="20" height="55" fill="#d97706" rx="2"/>
+  <rect x="711" y="150" width="35" height="60" fill="#365314" rx="2"/>
+
+  <!-- Grand Center Panel: SƠ ĐỒ NHẬN THỨC (x: 230 to 570, y: 70 to 420) -->
+  <rect x="230" y="70" width="340" height="350" rx="8" fill="#1c070b" stroke="url(#wall1_gold)" stroke-width="4" filter="url(#f_glow)" />
+  <rect x="242" y="82" width="316" height="326" fill="#140407" stroke="#fbbf24" stroke-width="1.5" />
+  
+  <!-- Diagram Header on Frame -->
+  <rect x="270" y="92" width="260" height="28" rx="14" fill="#2a080d" stroke="#d97706" stroke-width="1.5" />
+  <text x="400" y="111" font-family="serif" font-size="12" fill="#fbbf24" font-weight="bold" text-anchor="middle" letter-spacing="1">ĐẠI ĐỒ NHẬN THỨC BIỆN CHỨNG</text>
+  
+  <!-- Dialectical Diagram Graphics Inside Frame -->
+  <!-- Step 1: Sensuous Sphere -->
+  <circle cx="310" cy="180" r="32" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2" />
+  <text x="310" y="178" font-family="serif" font-size="9" fill="#93c5fd" font-weight="bold" text-anchor="middle">TRỰC QUAN</text>
+  <text x="310" y="190" font-family="serif" font-size="8" fill="#93c5fd" text-anchor="middle">SINH ĐỘNG</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 350 180 L 450 180" stroke="#f59e0b" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="4 2" />
+
+  <!-- Step 2: Abstract Sphere -->
+  <circle cx="490" cy="180" r="32" fill="#4c0519" stroke="#f43f5e" stroke-width="2" />
+  <text x="490" y="178" font-family="serif" font-size="9" fill="#fecdd3" font-weight="bold" text-anchor="middle">TƯ DUY</text>
+  <text x="490" y="190" font-family="serif" font-size="8" fill="#fecdd3" text-anchor="middle">TRỪU TƯỢNG</text>
+
+  <!-- Curved Cycle Down to Step 3: Practice -->
+  <path d="M 490 220 C 490 270, 440 290, 400 290" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
+  <path d="M 310 220 C 310 270, 360 290, 400 290" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Step 3: Practice & Absolute Truth Core -->
+  <circle cx="400" cy="305" r="40" fill="#2d0f07" stroke="#fbbf24" stroke-width="3" filter="url(#f_glow)" />
+  <text x="400" y="300" font-family="serif" font-size="11" fill="#fef08a" font-weight="bold" text-anchor="middle">THỰC TIỄN</text>
+  <text x="400" y="315" font-family="serif" font-size="9" fill="#fde68a" text-anchor="middle">& CHÂN LÝ</text>
+  
+  <text x="400" y="380" font-family="serif" font-size="10" fill="#fbbf24" font-style="italic" text-anchor="middle">"Nhấp vào sơ đồ để nghiên cứu chi tiết"</text>
+
+  <!-- Top Hatch / Stairway to Attic (▲) -->
+  <path d="M 360 40 L 440 40 L 420 5 L 380 5 Z" fill="#2a080d" stroke="url(#wall1_gold)" stroke-width="2" />
+  <text x="400" y="28" font-family="serif" font-size="12" fill="#fbbf24" font-weight="bold" text-anchor="middle">LỐI LÊN ĐÀI QUAN SÁT ▲</text>
+
+  <!-- Left Reading Desk (x: 60 to 220, y: 350 to 450) -->
+  <polygon points="50,400 210,400 230,460 30,460" fill="#1b080b" stroke="#78350f" stroke-width="2" />
+  <rect x="70" y="360" width="100" height="42" fill="#2b0d13" stroke="url(#wall1_gold)" stroke-width="1.5" rx="3" />
+  <text x="120" y="385" font-family="serif" font-size="10" fill="#fde68a" font-weight="bold" text-anchor="middle">BÀN TÀI LIỆU</text>
+  <rect x="80" y="390" width="80" height="8" fill="#f59e0b" opacity="0.6" rx="2" />
+
+  <!-- Floor -->
+  <rect x="0" y="460" width="800" height="140" fill="url(#floor_grad)" />
+  <!-- Perspective Floor Lines -->
+  <line x1="0" y1="600" x2="200" y2="460" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="200" y1="600" x2="330" y2="460" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="400" y1="600" x2="400" y2="460" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="600" y1="600" x2="470" y2="460" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="800" y1="600" x2="600" y2="460" stroke="#3b1119" stroke-width="1.5" />
+
+  <!-- Warm Wall Lamps -->
+  <circle cx="205" cy="100" r="45" fill="url(#lamp_glow)" />
+  <circle cx="205" cy="100" r="8" fill="#fef08a" stroke="#d97706" stroke-width="2" />
+  <circle cx="595" cy="100" r="45" fill="url(#lamp_glow)" />
+  <circle cx="595" cy="100" r="8" fill="#fef08a" stroke="#d97706" stroke-width="2" />
+</svg>

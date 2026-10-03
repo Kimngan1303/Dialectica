@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="prismGlow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#f59e0b" stop-opacity="0.6" />
+      <stop offset="70%" stop-color="#b45309" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="30%" stop-color="#d97706" />
+      <stop offset="70%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+    <linearGradient id="spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.8" />
+      <stop offset="25%" stop-color="#f59e0b" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#10b981" stop-opacity="0.8" />
+      <stop offset="75%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.9" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Aura -->
+  <circle cx="200" cy="180" r="150" fill="url(#prismGlow)" />
+
+  <!-- Apparatus Base -->
+  <ellipse cx="200" cy="350" rx="100" ry="24" fill="#1c100b" stroke="url(#brassGrad)" stroke-width="4" />
+  <ellipse cx="200" cy="344" rx="80" ry="16" fill="#2d160f" stroke="#fbbf24" stroke-width="2" />
+  <rect x="190" y="240" width="20" height="105" rx="6" fill="url(#brassGrad)" />
+  <circle cx="200" cy="240" r="14" fill="#fbbf24" stroke="#78350f" stroke-width="3" />
+
+  <!-- Gimbal Arms -->
+  <path d="M 120 200 C 120 280, 280 280, 280 200" fill="none" stroke="url(#brassGrad)" stroke-width="7" stroke-linecap="round" />
+  <circle cx="120" cy="200" r="8" fill="#fbbf24" />
+  <circle cx="280" cy="200" r="8" fill="#fbbf24" />
+
+  <!-- Light Beam In -->
+  <polygon points="40,160 160,175 160,185 40,170" fill="#ffffff" opacity="0.8" filter="url(#glow)" />
+
+  <!-- Prism Crystal Triangle -->
+  <polygon points="200,90 145,210 255,210" fill="rgba(254, 240, 138, 0.25)" stroke="#fbbf24" stroke-width="3" filter="url(#glow)" />
+  <polygon points="200,90 170,210 255,210" fill="rgba(255, 255, 255, 0.4)" />
+  <line x1="200" y1="90" x2="170" y2="210" stroke="#fff" stroke-width="2" opacity="0.7" />
+
+  <!-- Refracted Spectrum Beam Out -->
+  <polygon points="215,185 370,110 380,240 230,195" fill="url(#spectrum)" filter="url(#glow)" opacity="0.85" />
+
+  <!-- Sparks / Particles -->
+  <circle cx="200" cy="150" r="4" fill="#fff" filter="url(#glow)" />
+  <circle cx="290" cy="140" r="3" fill="#fef08a" filter="url(#glow)" />
+  <circle cx="340" cy="180" r="3" fill="#06b6d4" filter="url(#glow)" />
+  <circle cx="310" cy="220" r="3.5" fill="#ec4899" filter="url(#glow)" />
+
+  <!-- Caption Label Plaque -->
+  <rect x="130" y="360" width="140" height="24" rx="5" fill="#12080a" stroke="#d97706" stroke-width="1.5" />
+  <text x="200" y="376" font-family="serif" font-size="11" fill="#fde68a" font-weight="bold" text-anchor="middle" letter-spacing="1">LĂNG KÍNH CẢM QUAN</text>
+</svg>

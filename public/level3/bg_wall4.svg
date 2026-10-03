@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="wall4_bg" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#24070c" />
+      <stop offset="50%" stop-color="#190408" />
+      <stop offset="100%" stop-color="#0f0205" />
+    </linearGradient>
+    <linearGradient id="gold_g4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="80%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+    <linearGradient id="marble_table" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a2024" />
+      <stop offset="50%" stop-color="#4a3b42" />
+      <stop offset="100%" stop-color="#2a2024" />
+    </linearGradient>
+    <filter id="burner_g">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="800" height="440" fill="url(#wall4_bg)" />
+  <rect x="0" y="45" width="800" height="8" fill="url(#gold_g4)" opacity="0.6" />
+  <rect x="0" y="435" width="800" height="12" fill="url(#gold_g4)" opacity="0.7" />
+
+  <!-- Wall Shelves with Glassware & Reactants -->
+  <!-- Top Shelf Left -->
+  <rect x="50" y="90" width="220" height="10" rx="2" fill="url(#gold_g4)" />
+  <!-- Glass Jars on Shelf -->
+  <rect x="70" y="55" width="20" height="35" rx="3" fill="rgba(56,189,248,0.3)" stroke="#38bdf8" stroke-width="1.5" />
+  <rect x="100" y="50" width="25" height="40" rx="3" fill="rgba(244,63,94,0.3)" stroke="#f43f5e" stroke-width="1.5" />
+  <rect x="135" y="60" width="22" height="30" rx="3" fill="rgba(251,191,36,0.3)" stroke="#fbbf24" stroke-width="1.5" />
+  <rect x="170" y="52" width="26" height="38" rx="3" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="1.5" />
+  <rect x="210" y="58" width="20" height="32" rx="3" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1.5" />
+
+  <!-- Top Shelf Right -->
+  <rect x="530" y="90" width="220" height="10" rx="2" fill="url(#gold_g4)" />
+  <rect x="550" y="52" width="25" height="38" rx="3" fill="rgba(251,191,36,0.3)" stroke="#fbbf24" stroke-width="1.5" />
+  <rect x="585" y="58" width="22" height="32" rx="3" fill="rgba(56,189,248,0.3)" stroke="#38bdf8" stroke-width="1.5" />
+  <rect x="620" y="50" width="28" height="40" rx="3" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="1.5" />
+  <rect x="660" y="55" width="20" height="35" rx="3" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="1.5" />
+  <rect x="695" y="60" width="24" height="30" rx="3" fill="rgba(56,189,248,0.3)" stroke="#38bdf8" stroke-width="1.5" />
+
+  <!-- Dialectical Formulation Chalkboard / Plaque in Center (x: 290 to 510, y: 70 to 220) -->
+  <rect x="290" y="70" width="220" height="140" rx="6" fill="#140609" stroke="url(#gold_g4)" stroke-width="2.5" />
+  <rect x="300" y="80" width="200" height="120" fill="#0d0305" stroke="#78350f" stroke-width="1" />
+  <text x="400" y="102" font-family="serif" font-size="11" fill="#fbbf24" font-weight="bold" text-anchor="middle" letter-spacing="1">QUY LUẬT THỰC TIỄN</text>
+  <line x1="320" y1="110" x2="480" y2="110" stroke="#d97706" stroke-width="1" />
+  <text x="400" y="130" font-family="serif" font-size="9" fill="#fde68a" text-anchor="middle">1. Thực tiễn kiểm nghiệm Chân lý</text>
+  <text x="400" y="148" font-family="serif" font-size="9" fill="#fde68a" text-anchor="middle">2. Hòa trộn Cảm tính &amp; Lý tính</text>
+  <text x="400" y="166" font-family="serif" font-size="9" fill="#fde68a" text-anchor="middle">3. Khắc phục Tư duy Siêu hình</text>
+  <text x="400" y="186" font-family="serif" font-size="8" fill="#fbbf24" font-style="italic" text-anchor="middle">"Nhấp vào bàn bên dưới để chưng cất"</text>
+
+  <!-- Grand Laboratory Table (alchemy_table location: x: 180 to 620, y: 240 to 440) -->
+  <polygon points="180,270 620,270 660,440 140,440" fill="url(#marble_table)" stroke="url(#gold_g4)" stroke-width="3" />
+  <!-- Beveled Front Table Apron -->
+  <polygon points="140,440 660,440 650,460 150,460" fill="#180407" stroke="#b45309" stroke-width="1.5" />
+  <!-- Heavy Brass Table Legs -->
+  <rect x="155" y="440" width="25" height="110" fill="url(#gold_g4)" />
+  <rect x="620" y="440" width="25" height="110" fill="url(#gold_g4)" />
+
+  <!-- Apparatus Illustration on Table (Central alembic, tubing, condenser) -->
+  <ellipse cx="400" cy="330" rx="45" ry="30" fill="rgba(254,240,138,0.15)" stroke="#fbbf24" stroke-width="2" filter="url(#burner_g)" />
+  <!-- Condenser Tube connecting -->
+  <path d="M 400 300 Q 420 280, 480 300 T 520 340" fill="none" stroke="#38bdf8" stroke-width="3" opacity="0.8" />
+  <!-- Stand & Clamp -->
+  <rect x="330" y="275" width="6" height="90" fill="url(#gold_g4)" />
+  <circle cx="333" cy="300" r="5" fill="#f59e0b" />
+  <line x1="333" y1="300" x2="380" y2="300" stroke="url(#gold_g4)" stroke-width="2" />
+  
+  <!-- Desk Area Labels -->
+  <!-- Papers Indicator on table (left: 400, top: 280) -->
+  <rect x="420" y="285" width="70" height="40" rx="3" fill="#fef3c7" opacity="0.85" stroke="#b45309" stroke-width="1.5" transform="rotate(8, 455, 305)" />
+  <line x1="430" y1="295" x2="475" y2="300" stroke="#78350f" stroke-width="1" />
+  <line x1="430" y1="305" x2="475" y2="310" stroke="#78350f" stroke-width="1" />
+  <line x1="430" y1="315" x2="465" y2="320" stroke="#78350f" stroke-width="1" />
+
+  <!-- Left Probe Tray (left: 190, top: 260) -->
+  <rect x="180" y="280" width="75" height="30" rx="4" fill="#1b080b" stroke="#d97706" stroke-width="1.5" />
+  <text x="217" y="298" font-family="serif" font-size="8" fill="#fbbf24" text-anchor="middle">GIÁ ĐO LƯỜNG</text>
+
+  <!-- Floor -->
+  <rect x="0" y="450" width="800" height="150" fill="url(#wall4_bg)" />
+
+  <!-- Brass Vault Hatch in the floor on the left (hatch_down location: x: 180 to 280, y: 520 to 580) -->
+  <ellipse cx="230" cy="540" rx="70" ry="32" fill="#140608" stroke="url(#gold_g4)" stroke-width="4" filter="url(#burner_g)" />
+  <ellipse cx="230" cy="540" rx="55" ry="24" fill="#2d0b12" stroke="#d97706" stroke-width="2" />
+  <!-- Hatch Turning Wheel in center -->
+  <circle cx="230" cy="540" r="14" fill="#120406" stroke="url(#gold_g4)" stroke-width="3" />
+  <line x1="230" y1="526" x2="230" y2="554" stroke="#fbbf24" stroke-width="2.5" />
+  <line x1="216" y1="540" x2="244" y2="540" stroke="#fbbf24" stroke-width="2.5" />
+  <!-- Bolts on outer rim -->
+  <circle cx="170" cy="540" r="3" fill="#fbbf24" />
+  <circle cx="290" cy="540" r="3" fill="#fbbf24" />
+  <circle cx="230" cy="512" r="3" fill="#fbbf24" />
+  <circle cx="230" cy="568" r="3" fill="#fbbf24" />
+  <text x="230" y="585" font-family="serif" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle" letter-spacing="1">LỐI XUỐNG TẦNG HẦM ▼</text>
+</svg>

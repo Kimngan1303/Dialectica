@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <radialGradient id="sky_dome" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#1e1035" />
+      <stop offset="40%" stop-color="#0e071c" />
+      <stop offset="100%" stop-color="#040208" />
+    </radialGradient>
+    <linearGradient id="gold_obs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="80%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+    <radialGradient id="moon_beam" cx="15%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="altar_glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.7" />
+      <stop offset="40%" stop-color="#fbbf24" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="star_glow">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Observatory Dome Ceiling & Walls -->
+  <rect width="800" height="600" fill="url(#sky_dome)" />
+
+  <!-- Domed Ribs Arching to Celestial Apex -->
+  <path d="M 0 500 Q 400 0, 800 500" fill="none" stroke="url(#gold_obs)" stroke-width="6" />
+  <path d="M 80 500 Q 400 60, 720 500" fill="none" stroke="#b45309" stroke-width="3" opacity="0.6" />
+  <path d="M 180 500 Q 400 120, 620 500" fill="none" stroke="#b45309" stroke-width="2" opacity="0.5" />
+  <circle cx="400" cy="50" r="14" fill="#fbbf24" stroke="#78350f" stroke-width="3" />
+
+  <!-- Celestial Constellation Dots & Lines -->
+  <line x1="300" y1="120" x2="340" y2="90" stroke="#93c5fd" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+  <line x1="340" y1="90" x2="380" y2="110" stroke="#93c5fd" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+  <line x1="420" y1="100" x2="470" y2="80" stroke="#93c5fd" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+  <line x1="470" y1="80" x2="520" y2="110" stroke="#93c5fd" stroke-width="1" opacity="0.6" stroke-dasharray="3 3"/>
+  <circle cx="300" cy="120" r="3" fill="#fff" filter="url(#star_glow)" />
+  <circle cx="340" cy="90" r="2.5" fill="#fde047" filter="url(#star_glow)" />
+  <circle cx="380" cy="110" r="3" fill="#fff" filter="url(#star_glow)" />
+  <circle cx="420" cy="100" r="2" fill="#fff" filter="url(#star_glow)" />
+  <circle cx="470" cy="80" r="3.5" fill="#fde047" filter="url(#star_glow)" />
+  <circle cx="520" cy="110" r="2.5" fill="#fff" filter="url(#star_glow)" />
+
+  <!-- Grand Gothic Observatory Window on the Left (window_attic location: x: 70 to 200, y: 80 to 300) -->
+  <path d="M 80 180 A 60 60 0 0 1 200 180 L 200 320 L 80 320 Z" fill="#030712" stroke="url(#gold_obs)" stroke-width="4" filter="url(#star_glow)" />
+  <!-- Window Glass Panes & Starry Sky Inside -->
+  <circle cx="160" cy="150" r="16" fill="#fef08a" filter="url(#star_glow)" />
+  <circle cx="150" cy="145" r="13" fill="#030712" /> <!-- Crescent moon -->
+  <line x1="140" y1="120" x2="140" y2="320" stroke="#fbbf24" stroke-width="2" />
+  <line x1="80" y1="220" x2="200" y2="220" stroke="#fbbf24" stroke-width="2" />
+  <line x1="80" y1="270" x2="200" y2="270" stroke="#fbbf24" stroke-width="2" />
+  
+  <!-- Moonlight stream streaming inward across the floor -->
+  <polygon points="80,180 200,180 440,550 120,550" fill="url(#moon_beam)" />
+  <text x="140" y="345" font-family="serif" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle">CỬA SỔ NGUYÊN LÝ</text>
+
+  <!-- Grand Central Altar / Dais for Practice Verification Core (x: 270 to 530, y: 240 to 480) -->
+  <circle cx="400" cy="240" r="130" fill="url(#altar_glow)" />
+
+  <!-- Stepped Golden Altar Base -->
+  <polygon points="260,470 540,470 560,520 240,520" fill="#180408" stroke="url(#gold_obs)" stroke-width="3" />
+  <polygon points="280,410 520,410 540,470 260,470" fill="#2d0811" stroke="#f59e0b" stroke-width="2" />
+  <polygon points="310,340 490,340 520,410 280,410" fill="#4c0d1b" stroke="url(#gold_obs)" stroke-width="2.5" />
+
+  <!-- Top Cradle Pedestal -->
+  <ellipse cx="400" cy="340" rx="90" ry="25" fill="#180408" stroke="#fbbf24" stroke-width="3" filter="url(#star_glow)" />
+  <ellipse cx="400" cy="340" rx="70" ry="18" fill="#7f1d1d" stroke="#fde047" stroke-width="2" />
+
+  <!-- Altar Inscription Plaque -->
+  <rect x="300" y="430" width="200" height="26" rx="5" fill="#100305" stroke="url(#gold_obs)" stroke-width="1.5" />
+  <text x="400" y="448" font-family="serif" font-size="11" fill="#fde68a" font-weight="bold" text-anchor="middle" letter-spacing="1">ĐỈNH CAO CHÂN LÝ THỰC TIỄN</text>
+
+  <!-- Brass Observatory Meridian Arcs around Altar -->
+  <path d="M 270 340 C 270 220, 530 220, 530 340" fill="none" stroke="url(#gold_obs)" stroke-width="3" stroke-dasharray="8 6" opacity="0.75" />
+
+  <!-- Down Stairway hatch on top right (ladder_down / ▼ hotspot) -->
+  <rect x="680" y="80" width="80" height="60" fill="#000" stroke="url(#gold_obs)" stroke-width="2" />
+  <line x1="700" y1="80" x2="700" y2="150" stroke="url(#gold_obs)" stroke-width="4" />
+  <line x1="740" y1="80" x2="740" y2="150" stroke="url(#gold_obs)" stroke-width="4" />
+  <line x1="700" y1="95" x2="740" y2="95" stroke="#fbbf24" stroke-width="3" />
+  <line x1="700" y1="115" x2="740" y2="115" stroke="#fbbf24" stroke-width="3" />
+  <line x1="700" y1="135" x2="740" y2="135" stroke="#fbbf24" stroke-width="3" />
+  <text x="720" y="165" font-family="serif" font-size="10" fill="#fbbf24" font-weight="bold" text-anchor="middle">LỐI XUỐNG ▼</text>
+
+  <!-- Floor -->
+  <rect x="0" y="520" width="800" height="80" fill="#140407" />
+  <line x1="0" y1="600" x2="240" y2="520" stroke="#3b1119" stroke-width="2" />
+  <line x1="800" y1="600" x2="560" y2="520" stroke="#3b1119" stroke-width="2" />
+</svg>

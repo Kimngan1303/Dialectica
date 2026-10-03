@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff" />
+      <stop offset="25%" stop-color="#fbbf24" />
+      <stop offset="60%" stop-color="#ef4444" />
+      <stop offset="85%" stop-color="#881337" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="80%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <filter id="superGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="16" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer Energy Pulsing Aura -->
+  <circle cx="200" cy="200" r="160" fill="url(#coreGlow)" opacity="0.35" />
+
+  <!-- Outer Armillary Ring 1 (Vertical Ellipse) -->
+  <ellipse cx="200" cy="200" rx="60" ry="150" fill="none" stroke="url(#goldRing)" stroke-width="5" transform="rotate(30, 200, 200)" filter="url(#superGlow)" />
+  <!-- Ring 2 (Horizontal Ellipse) -->
+  <ellipse cx="200" cy="200" rx="150" ry="60" fill="none" stroke="url(#goldRing)" stroke-width="5" transform="rotate(-25, 200, 200)" filter="url(#superGlow)" />
+  <!-- Ring 3 (Outer Circle) -->
+  <circle cx="200" cy="200" r="140" fill="none" stroke="#fbbf24" stroke-dasharray="8 12" stroke-width="3" opacity="0.75" />
+
+  <!-- Gimbal Nodes -->
+  <circle cx="200" cy="50" r="9" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+  <circle cx="200" cy="350" r="9" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+  <circle cx="50" cy="200" r="9" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+  <circle cx="350" cy="200" r="9" fill="#fbbf24" stroke="#78350f" stroke-width="2" />
+
+  <!-- Inner Dialectical Energy Core -->
+  <circle cx="200" cy="200" r="75" fill="url(#coreGlow)" filter="url(#superGlow)" />
+
+  <!-- Infinity Symbol in Core (Practice & Truth loop) -->
+  <path d="M 160 200 C 160 180, 185 180, 200 200 C 215 220, 240 220, 240 200 C 240 180, 215 180, 200 200 C 185 220, 160 220, 160 200 Z" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" filter="url(#superGlow)" />
+
+  <!-- Small Energy Orbits -->
+  <circle cx="160" cy="180" r="4" fill="#fef08a" filter="url(#superGlow)" />
+  <circle cx="240" cy="220" r="4" fill="#fde047" filter="url(#superGlow)" />
+
+  <!-- Bottom Dialectical Label Plaque -->
+  <rect x="90" y="362" width="220" height="26" rx="6" fill="#180509" stroke="#d97706" stroke-width="2" />
+  <text x="200" y="380" font-family="serif" font-size="12" fill="#fbbf24" font-weight="bold" text-anchor="middle" letter-spacing="1">TRỤ LÕI KIỂM CHỨNG THỰC TIỄN</text>
+</svg>

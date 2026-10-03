@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="wall3_bg" x1="0" y1="0" x2="0" y2="100%">
+      <stop offset="0%" stop-color="#1f050b" />
+      <stop offset="60%" stop-color="#140307" />
+      <stop offset="100%" stop-color="#0a0204" />
+    </linearGradient>
+    <linearGradient id="gold_grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="40%" stop-color="#f59e0b" />
+      <stop offset="80%" stop-color="#78350f" />
+      <stop offset="100%" stop-color="#fef08a" />
+    </linearGradient>
+    <radialGradient id="neural_aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#a855f7" stop-opacity="0.4" />
+      <stop offset="70%" stop-color="#3b0764" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="neural_glow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="800" height="460" fill="url(#wall3_bg)" />
+  <rect x="0" y="45" width="800" height="8" fill="url(#gold_grad3)" opacity="0.6" />
+  <rect x="0" y="445" width="800" height="15" fill="url(#gold_grad3)" opacity="0.7" />
+
+  <!-- Background Circuit Lines of Abstract Logic -->
+  <path d="M 100 80 L 250 80 L 290 120 L 290 350" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" />
+  <path d="M 700 80 L 550 80 L 510 120 L 510 350" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4" />
+  <circle cx="100" cy="80" r="4" fill="#f472b6" opacity="0.6" />
+  <circle cx="700" cy="80" r="4" fill="#f472b6" opacity="0.6" />
+
+  <!-- Philosophical Wall Inscriptions -->
+  <text x="180" y="200" font-family="serif" font-size="11" fill="#f59e0b" opacity="0.5" transform="rotate(-90 180 200)">KHÁI NIỆM — PHÁN ĐOÁN — SUY LÝ</text>
+  <text x="660" y="200" font-family="serif" font-size="11" fill="#f59e0b" opacity="0.5" transform="rotate(90 660 200)">BẢN CHẤT & QUY LUẬT TƯ DUY</text>
+
+  <!-- Central Neural Column Station (x: 270 to 530, y: 70 to 450) -->
+  <!-- Top Arch & Mounting Ring -->
+  <rect x="290" y="60" width="220" height="24" rx="4" fill="#1b080d" stroke="url(#gold_grad3)" stroke-width="2.5" />
+  <circle cx="400" cy="72" r="7" fill="#fbbf24" />
+  
+  <!-- Neural Aura Background -->
+  <ellipse cx="400" cy="270" rx="140" ry="160" fill="url(#neural_aura)" />
+
+  <!-- Vertical Glass Column Cylinder -->
+  <rect x="310" y="84" width="180" height="340" fill="rgba(168, 85, 247, 0.08)" stroke="url(#gold_grad3)" stroke-width="2" />
+  
+  <!-- Gilded Structural Ribs -->
+  <line x1="310" y1="160" x2="490" y2="160" stroke="#d97706" stroke-width="3" />
+  <line x1="310" y1="260" x2="490" y2="260" stroke="#d97706" stroke-width="3" />
+  <line x1="310" y1="360" x2="490" y2="360" stroke="#d97706" stroke-width="3" />
+
+  <!-- Internal Glowing Neural Strands / Abstract Thought Synapses -->
+  <!-- Synaptic Hubs -->
+  <circle cx="400" cy="220" r="14" fill="#fff" filter="url(#neural_glow)" />
+  <circle cx="360" cy="180" r="10" fill="#f43f5e" filter="url(#neural_glow)" />
+  <circle cx="440" cy="190" r="10" fill="#a855f7" filter="url(#neural_glow)" />
+  <circle cx="370" cy="300" r="11" fill="#ec4899" filter="url(#neural_glow)" />
+  <circle cx="430" cy="310" r="12" fill="#38bdf8" filter="url(#neural_glow)" />
+
+  <!-- Neural axon connections -->
+  <path d="M 400 100 Q 360 140, 360 180 T 400 220 T 430 310 T 400 420" fill="none" stroke="#f43f5e" stroke-width="3.5" filter="url(#neural_glow)" />
+  <path d="M 400 100 Q 440 140, 440 190 T 400 220 T 370 300 T 400 420" fill="none" stroke="#a855f7" stroke-width="3.5" filter="url(#neural_glow)" />
+  <line x1="360" y1="180" x2="440" y2="190" stroke="#fff" stroke-width="2" filter="url(#neural_glow)" />
+  <line x1="370" y1="300" x2="430" y2="310" stroke="#fff" stroke-width="2" filter="url(#neural_glow)" />
+
+  <!-- Column Pedestal Base -->
+  <polygon points="270,440 530,440 510,410 290,410" fill="#24070d" stroke="url(#gold_grad3)" stroke-width="3" />
+  <rect x="330" y="418" width="140" height="20" rx="3" fill="#120407" stroke="#fbbf24" stroke-width="1.5" />
+  <text x="400" y="432" font-family="serif" font-size="9" fill="#fbbf24" font-weight="bold" text-anchor="middle" letter-spacing="1">TRỤ NƠ-RON LÝ TÍNH</text>
+
+  <!-- Right Instrument Console (x: 530 to 670, y: 220 to 450) where pipette sits -->
+  <polygon points="530,240 670,240 680,450 520,450" fill="#1b070b" stroke="url(#gold_grad3)" stroke-width="2" />
+  <!-- Instrument rack with test tubes and dials -->
+  <rect x="545" y="210" width="110" height="30" rx="4" fill="#2d0a11" stroke="#f59e0b" stroke-width="1.5" />
+  <circle cx="565" cy="225" r="7" fill="#140307" stroke="#38bdf8" stroke-width="2" />
+  <circle cx="590" cy="225" r="7" fill="#140307" stroke="#f43f5e" stroke-width="2" />
+  <circle cx="615" cy="225" r="7" fill="#140307" stroke="#a855f7" stroke-width="2" />
+  <circle cx="640" cy="225" r="7" fill="#140307" stroke="#fbbf24" stroke-width="2" />
+  <text x="600" y="255" font-family="serif" font-size="8" fill="#fde68a" text-anchor="middle">GIÁ ĐỰNG DỤNG CỤ CHIẾT XUẤT</text>
+
+  <!-- Floor -->
+  <rect x="0" y="450" width="800" height="150" fill="url(#wall3_bg)" />
+  <line x1="0" y1="600" x2="200" y2="450" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="250" y1="600" x2="330" y2="450" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="550" y1="600" x2="470" y2="450" stroke="#3b1119" stroke-width="1.5" />
+  <line x1="800" y1="600" x2="600" y2="450" stroke="#3b1119" stroke-width="1.5" />
+</svg>

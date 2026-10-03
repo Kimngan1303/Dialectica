@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <radialGradient id="thoughtGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#3b0764" stop-opacity="0" />
+    </radialGradient>
+    <filter id="tg">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <circle cx="100" cy="100" r="75" fill="url(#thoughtGlow)" opacity="0.4" />
+  <!-- Neural Synapse / Diamond Concept -->
+  <polygon points="100,30 160,100 100,170 40,100" fill="url(#thoughtGlow)" stroke="#f472b6" stroke-width="3" filter="url(#tg)" />
+  <polygon points="100,50 140,100 100,150 60,100" fill="none" stroke="#fde047" stroke-width="2" />
+  <!-- Synaptic Arcs -->
+  <line x1="100" y1="30" x2="100" y2="170" stroke="#fff" stroke-width="2" opacity="0.8" />
+  <line x1="40" y1="100" x2="160" y2="100" stroke="#fff" stroke-width="2" opacity="0.8" />
+  <circle cx="100" cy="100" r="12" fill="#fff" filter="url(#tg)" />
+</svg>

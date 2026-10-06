@@ -44,8 +44,6 @@ export const useGameStore = create((set, get) => ({
     const CRAFTING_RECIPES = {
       'stone+mirror': { id: 'key_branch_2', name: 'Chìa khóa Nhãn quan Duy vật', icon: '🗝️' },
       'mirror+stone': { id: 'key_branch_2', name: 'Chìa khóa Nhãn quan Duy vật', icon: '🗝️' },
-      'water+fire': { id: 'key_branch_3', name: 'Chìa Khóa Bước Nhảy', icon: '🗝️' },
-      'fire+water': { id: 'key_branch_3', name: 'Chìa Khóa Bước Nhảy', icon: '🗝️' },
       'gear+scroll': { id: 'key_boss', name: 'Chìa khóa Bánh xe Lịch sử', icon: '👑' },
       'scroll+gear': { id: 'key_boss', name: 'Chìa khóa Bánh xe Lịch sử', icon: '👑' }
     };

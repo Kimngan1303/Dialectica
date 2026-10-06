@@ -106,7 +106,7 @@ const Level2Minigame = () => {
     const triggerJump = useCallback(() => {
         const p = stateRef.current.player;
         if (p.isGrounded || p.jumpsLeft > 0) {
-            p.vy = -12.5;
+            p.vy = -11.8;
             p.isGrounded = false;
             p.jumpsLeft -= 1;
             playGameSfx('liquid');
@@ -199,19 +199,23 @@ const Level2Minigame = () => {
         return () => clearTimeout(t);
     }, []);
 
-    // Main 60fps Game Loop with Canvas
+    // Fixed-timestep Game Loop with Canvas (Consistent physics on both 60Hz and 120Hz/144Hz+ screens)
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
 
-        const loop = () => {
+        let lastTime = performance.now();
+        let accumulator = 0;
+        const FIXED_STEP = 1000 / 60; // 60 FPS physics standard (16.67ms)
+
+        const updatePhysics = () => {
             const state = stateRef.current;
             const p = state.player;
 
             // 1. Move Player
-            const accel = 0.9;
-            const maxSpeed = 5.5;
+            const accel = 0.75;
+            const maxSpeed = 4.8;
             if (state.keys.left) {
                 p.vx -= accel;
                 p.facing = 'left';
@@ -219,13 +223,13 @@ const Level2Minigame = () => {
                 p.vx += accel;
                 p.facing = 'right';
             } else {
-                p.vx *= 0.82; // friction
+                p.vx *= 0.84; // friction
             }
             p.vx = Math.max(-maxSpeed, Math.min(maxSpeed, p.vx));
 
             // Gravity
-            p.vy += 0.52;
-            if (p.vy > 14) p.vy = 14;
+            p.vy += 0.46;
+            if (p.vy > 13) p.vy = 13;
 
             // Next position
             p.x += p.vx;
@@ -266,7 +270,7 @@ const Level2Minigame = () => {
 
                     // Check if spring / jump pad
                     if (plat.type === 'spring') {
-                        p.vy = -18.5;
+                        p.vy = -17.0;
                         p.isGrounded = false;
                         playGameSfx('craft');
                         showToast("BÙNG NỔ BƯỚC NHẢY VỀ CHẤT! 🚀");
@@ -327,8 +331,8 @@ const Level2Minigame = () => {
                 const hitY = p.y + p.h > hz.y && p.y < hz.y + hz.h;
                 if (hitX && hitY) {
                     playGameSfx('wrong');
-                    p.vy = -6;
-                    p.vx = p.x < hz.x ? -5 : 5;
+                    p.vy = -5.5;
+                    p.vx = p.x < hz.x ? -4.5 : 4.5;
                     showToast(`⚠️ Va phải ${hz.label}! Tư duy siêu hình cản trở nhận thức!`);
                 }
             });
@@ -343,21 +347,48 @@ const Level2Minigame = () => {
                 showToast("Rơi khỏi nấc thang! Tái lập tư duy tại Trạm kiểm soát.");
             }
 
-            // 7. Smooth Camera tracking
+            // 7. Update Particles
+            for (let i = state.particles.length - 1; i >= 0; i--) {
+                const part = state.particles[i];
+                part.x += part.vx;
+                part.y += part.vy;
+                part.life -= 0.025;
+                if (part.life <= 0) {
+                    state.particles.splice(i, 1);
+                }
+            }
+
+            // 8. Smooth Camera tracking
             const targetCamY = p.y - 340;
             state.cameraY += (targetCamY - state.cameraY) * 0.08;
             state.cameraY = Math.max(0, Math.min(WORLD_HEIGHT - VIEW_HEIGHT, state.cameraY));
+        };
+
+        const loop = (now) => {
+            if (!now) now = performance.now();
+            const elapsed = Math.min(now - lastTime, 100); // Prevent large jumps when tab is in background
+            lastTime = now;
+            accumulator += elapsed;
+
+            // Execute fixed number of physics steps according to elapsed time
+            while (accumulator >= FIXED_STEP) {
+                updatePhysics();
+                accumulator -= FIXED_STEP;
+            }
+
+            const state = stateRef.current;
+            const p = state.player;
 
             // Calculate altitude %
             const currentAlt = Math.max(0, Math.min(100, Math.floor(((2120 - p.y) / (2120 - 250)) * 100)));
             setAltitudePercent(currentAlt);
 
-            // 8. RENDER CANVAS
+            // --- RENDER CANVAS ---
             ctx.clearRect(0, 0, VIEW_WIDTH, VIEW_HEIGHT);
             ctx.save();
             ctx.translate(0, -state.cameraY);
 
-            // --- Background Spiral Pattern ---
+            // Background Spiral Pattern
             const spiralCenterY = 1100;
             ctx.save();
             ctx.strokeStyle = 'rgba(245, 158, 11, 0.06)';
@@ -477,21 +508,14 @@ const Level2Minigame = () => {
             });
 
             // --- Render Particles ---
-            for (let i = state.particles.length - 1; i >= 0; i--) {
+            for (let i = 0; i < state.particles.length; i++) {
                 const part = state.particles[i];
-                part.x += part.vx;
-                part.y += part.vy;
-                part.life -= 0.03;
-                if (part.life <= 0) {
-                    state.particles.splice(i, 1);
-                } else {
-                    ctx.fillStyle = part.color;
-                    ctx.globalAlpha = part.life;
-                    ctx.beginPath();
-                    ctx.arc(part.x, part.y, 3 * part.life, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.globalAlpha = 1;
-                }
+                ctx.fillStyle = part.color;
+                ctx.globalAlpha = Math.max(0, part.life);
+                ctx.beginPath();
+                ctx.arc(part.x, part.y, 3 * part.life, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.globalAlpha = 1;
             }
 
             // --- Render Player Character ---

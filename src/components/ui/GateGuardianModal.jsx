@@ -61,7 +61,6 @@ const GateGuardianModal = () => {
           </h2>
           <p className="fs-5 text-white mb-4 lh-lg" style={{ fontStyle: 'normal', color: '#fef08a' }}>
             "Hỡi người tìm kiếm chân lý... Để khai mở cánh cổng tiến vào <strong>{branchName}</strong>, bạn cần <strong>{keyName}</strong>.<br/>
-            Cánh cổng này chỉ mở ra trước quy luật biện chứng khách quan và sự chuyển hóa về chất.<br/>
             Bạn đã sẵn sàng khai mở cảnh giới mới chưa?"
           </p>
           

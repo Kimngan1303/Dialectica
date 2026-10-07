@@ -327,77 +327,38 @@ const BrainModel = () => {
             <meshBasicMaterial transparent opacity={0} />
           </mesh>
 
-          {/* Nhãn Triết Học Trực Quan Dưới Chân Mô Hình */}
-          <Html position={[0, -4.2, 0]} center transform distanceFactor={14}>
-            <div
-              style={{
-                textAlign: 'center',
-                pointerEvents: 'auto',
-                userSelect: 'none',
-                width: '420px',
-                padding: '16px 24px',
-                background: 'rgba(18, 7, 11, 0.85)',
-                backdropFilter: 'blur(12px)',
-                border: '1px solid rgba(251, 191, 36, 0.35)',
-                borderRadius: '20px',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(245, 158, 11, 0.2)',
-                cursor: 'pointer',
+          {/* Nút Khai Mở Hành Trình Dưới Chân Mô Hình */}
+          <Html position={[0, -3.6, 0]} center transform distanceFactor={14}>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClick(e);
               }}
-              onClick={handleClick}
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              style={{
+                display: 'inline-block',
+                padding: '12px 28px',
+                background: 'linear-gradient(135deg, rgba(239,68,68,0.7), rgba(245,158,11,0.7))',
+                backdropFilter: 'blur(8px)',
+                border: '1.5px solid #fbbf24',
+                borderRadius: '30px',
+                fontSize: '13px',
+                fontWeight: 'bold',
+                color: '#fff',
+                letterSpacing: '1.5px',
+                boxShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 0 10px rgba(239, 68, 68, 0.5), 0 8px 32px rgba(0,0,0,0.6)',
+                cursor: 'pointer',
+                pointerEvents: 'auto',
+                transition: 'all 0.25s ease',
+                textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+                whiteSpace: 'nowrap',
+                userSelect: 'none',
+              }}
             >
-              <div
-                style={{
-                  background: 'linear-gradient(135deg, #ef4444, #f59e0b, #facc15)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  fontWeight: 900,
-                  fontSize: '18px',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                }}
-              >
-                QUY LUẬT MÂU THUẪN
-              </div>
-              <div
-                style={{
-                  color: '#fef08a',
-                  fontSize: '13px',
-                  fontStyle: 'italic',
-                  marginTop: '4px',
-                  fontWeight: '500',
-                }}
-              >
-                Sự Thống Nhất & Đấu Tranh Của Các Mặt Đối Lập
-              </div>
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleClick(e);
-                }}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-                style={{
-                  display: 'inline-block',
-                  marginTop: '12px',
-                  padding: '8px 24px',
-                  background: 'linear-gradient(135deg, rgba(239,68,68,0.4), rgba(245,158,11,0.4))',
-                  border: '1.5px solid #fbbf24',
-                  borderRadius: '30px',
-                  fontSize: '12px',
-                  fontWeight: 'bold',
-                  color: '#fff',
-                  letterSpacing: '1.2px',
-                  boxShadow: '0 0 16px rgba(251, 191, 36, 0.6), 0 0 8px rgba(239, 68, 68, 0.5)',
-                  cursor: 'pointer',
-                  pointerEvents: 'auto',
-                  transition: 'all 0.25s ease',
-                  textShadow: '0 1px 2px rgba(0,0,0,0.5)',
-                }}
-              >
-                ✦ NHẤP VÀO ĐỂ KHAI MỞ HÀNH TRÌNH ✦
-              </button>
-            </div>
+              ✦ NHẤP VÀO ĐỂ KHAI MỞ HÀNH TRÌNH ✦
+            </button>
           </Html>
         </group>
       </Float>

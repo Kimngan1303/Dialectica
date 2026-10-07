@@ -246,7 +246,7 @@ const BrainModel = () => {
     if (viewState === 'START') {
       setIsZooming(false);
       if (groupRef.current) {
-        groupRef.current.scale.set(1.4, 1.4, 1.4);
+        groupRef.current.scale.set(1.85, 1.85, 1.85);
         groupRef.current.position.z = 0;
       }
       if (starsRef.current) {
@@ -277,7 +277,7 @@ const BrainModel = () => {
         starsRef.current.position.z += 1.6;
       }
       if (groupRef.current) {
-        groupRef.current.scale.lerp(new THREE.Vector3(12, 12, 12), 0.08);
+        groupRef.current.scale.lerp(new THREE.Vector3(14, 14, 14), 0.08);
         groupRef.current.position.z += 0.9;
       }
     } else {
@@ -287,7 +287,7 @@ const BrainModel = () => {
       }
       if (groupRef.current) {
         groupRef.current.position.z = THREE.MathUtils.lerp(groupRef.current.position.z, 0, 0.1);
-        const targetScale = hovered ? 1.55 : 1.4;
+        const targetScale = hovered ? 2.05 : 1.85;
         groupRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
       }
     }
@@ -305,7 +305,7 @@ const BrainModel = () => {
       </group>
 
       <Float speed={1.8} rotationIntensity={0.15} floatIntensity={0.25}>
-        <group ref={groupRef} position={[0, 0.5, 0]}>
+        <group ref={groupRef} position={[0, 0.8, 0]}>
           {/* MÔ HÌNH TRIẾT HỌC: HAI MẶT ĐỐI LẬP THỐNG NHẤT */}
           <OppositesUnityModel hovered={hovered} />
 
@@ -326,42 +326,42 @@ const BrainModel = () => {
             <sphereGeometry args={[1, 16, 16]} />
             <meshBasicMaterial transparent opacity={0} />
           </mesh>
-
-          {/* Nút Khai Mở Hành Trình Dưới Chân Mô Hình */}
-          <Html position={[0, -3.6, 0]} center transform distanceFactor={14}>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleClick(e);
-              }}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-              style={{
-                display: 'inline-block',
-                padding: '12px 28px',
-                background: 'linear-gradient(135deg, rgba(239,68,68,0.7), rgba(245,158,11,0.7))',
-                backdropFilter: 'blur(8px)',
-                border: '1.5px solid #fbbf24',
-                borderRadius: '30px',
-                fontSize: '13px',
-                fontWeight: 'bold',
-                color: '#fff',
-                letterSpacing: '1.5px',
-                boxShadow: '0 0 20px rgba(251, 191, 36, 0.6), 0 0 10px rgba(239, 68, 68, 0.5), 0 8px 32px rgba(0,0,0,0.6)',
-                cursor: 'pointer',
-                pointerEvents: 'auto',
-                transition: 'all 0.25s ease',
-                textShadow: '0 1px 2px rgba(0,0,0,0.5)',
-                whiteSpace: 'nowrap',
-                userSelect: 'none',
-              }}
-            >
-              ✦ NHẤP VÀO ĐỂ KHAI MỞ HÀNH TRÌNH ✦
-            </button>
-          </Html>
         </group>
       </Float>
+
+      {/* Nút Khai Mở Hành Trình Độc Lập Dưới Chân Mô Hình */}
+      <Html position={[0, -5.6, 0]} center transform distanceFactor={26}>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleClick(e);
+          }}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={{
+            display: 'inline-block',
+            padding: '13px 30px',
+            background: 'linear-gradient(135deg, rgba(239,68,68,0.75), rgba(245,158,11,0.75))',
+            backdropFilter: 'blur(8px)',
+            border: '1.5px solid #fbbf24',
+            borderRadius: '30px',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            color: '#fff',
+            letterSpacing: '1.5px',
+            boxShadow: '0 0 22px rgba(251, 191, 36, 0.65), 0 0 12px rgba(239, 68, 68, 0.5), 0 8px 32px rgba(0,0,0,0.7)',
+            cursor: 'pointer',
+            pointerEvents: 'auto',
+            transition: 'all 0.25s ease',
+            textShadow: '0 1px 2px rgba(0,0,0,0.6)',
+            whiteSpace: 'nowrap',
+            userSelect: 'none',
+          }}
+        >
+          ✦ NHẤP VÀO ĐỂ KHAI MỞ HÀNH TRÌNH ✦
+        </button>
+      </Html>
     </group>
   );
 };

@@ -529,7 +529,7 @@ const HubPortals = () => {
         branchId="BOSS"
         name="Kho Tàng Tối Thượng"
         subtitle="Bánh Xe Lịch Sử"
-        requiredItems="Chìa khóa Bánh xe Lịch sử"
+        requiredItems="vượt qua nhánh 3"
       />
     </group>
   );

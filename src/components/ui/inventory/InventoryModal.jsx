@@ -258,12 +258,7 @@ const InventoryModal = ({ show, onHide }) => {
               </AnimatePresence>
             </div>
 
-            <div className="w-100 p-3 mt-2" style={{ background: 'rgba(251, 191, 36, 0.08)', borderRadius: '12px', border: '1px solid rgba(251, 191, 36, 0.25)', fontSize: '11px', color: '#fef08a' }}>
-              <div className="fw-bold mb-1" style={{ color: '#fbbf24' }}>💡 Cẩm Nang Hợp Nhất Biện Chứng:</div>
-              <div>• 💎 Bản thể + 🪞 Tư duy → 🗝️ Chìa khóa Nhãn quan Duy vật</div>
-              <div>• 🌊 Biến dịch + 🔥 Biện chứng → ⚡ Chìa khóa Bước nhảy Lượng - Chất</div>
-              <div>• ⚙️ Quy luật + 📜 Thực tiễn → 👑 Chìa khóa Bánh xe Lịch sử</div>
-            </div>
+
           </Col>
         </Row>
       </Modal.Body>

@@ -131,9 +131,9 @@ function SproutBook() {
 function SlideOne() {
   const lines = [
     'Bạn đã đi qua một hành trình dài của Nhận thức:',
-    'Nhận diện Mâu thuẫn để tìm ra lối đi (Cửa 1).',
-    'Vượt qua Phủ định để nhìn thấu Ảo ảnh (Cửa 2).',
-    'Tổng hòa Biện chứng để chữa lành những sai lầm (Cửa 3).',
+    'Khai phá Bản thể luận, thấu suốt mối quan hệ Vật chất & Ý thức (Cửa 1).',
+    'Tích lũy Lượng tạo Bước nhảy về Chất, vượt qua cạm bẫy Siêu hình (Cửa 2).',
+    'Khơi thông Mạch nguồn Thực tiễn để chạm tới Chân lý khách quan (Cửa 3).',
   ];
 
   return (

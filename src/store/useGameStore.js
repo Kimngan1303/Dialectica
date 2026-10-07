@@ -1,4 +1,16 @@
-import { create } from 'zustand';
+const getRandomBranch1Items = () => {
+  const branch1Ids = [1, 2, 3, 4, 5, 6, 7, 8];
+  const shuffled = [...branch1Ids].sort(() => Math.random() - 0.5);
+  const stoneId = shuffled[0];
+  const mirrorId = shuffled[1];
+  const map = {};
+  branch1Ids.forEach(id => {
+    if (id === stoneId) map[id] = 'stone';
+    else if (id === mirrorId) map[id] = 'mirror';
+    else map[id] = null;
+  });
+  return map;
+};
 
 export const useGameStore = create((set, get) => ({
   inventory: [],
@@ -7,6 +19,9 @@ export const useGameStore = create((set, get) => ({
   
   answeredQuestions: [], // Array of question IDs answered correctly
   cooldownNodes: {}, // Object map: { [questionId]: true } if answered wrong
+
+  branch1ItemMap: getRandomBranch1Items(),
+  branch1Failed: false,
 
   viewState: 'START', // 'START', 'HUB', 'WARPING', 'BRANCH', 'QUESTION'
   activeNodeId: null,
@@ -18,12 +33,36 @@ export const useGameStore = create((set, get) => ({
   setCurrentBranch: (branch) => set({ currentBranch: branch }),
   setLockedPortalTarget: (id) => set({ lockedPortalTarget: id }),
   setRewardPopup: (item) => set({ rewardPopup: item }),
+  setBranch1Failed: (failed) => set({ branch1Failed: failed }),
+
+  resetBranch1: () => {
+    const { inventory, answeredQuestions, cooldownNodes } = get();
+    const cleanInv = inventory.filter(i => i.id !== 'stone' && i.id !== 'mirror');
+    const cleanAnswered = answeredQuestions.filter(id => id < 1 || id > 8);
+    const newCooldowns = { ...cooldownNodes };
+    [1, 2, 3, 4, 5, 6, 7, 8].forEach(id => {
+      delete newCooldowns[id];
+    });
+
+    set({
+      branch1ItemMap: getRandomBranch1Items(),
+      branch1Failed: false,
+      inventory: cleanInv,
+      answeredQuestions: cleanAnswered,
+      cooldownNodes: newCooldowns,
+      activeNodeId: null,
+      viewState: 'BRANCH'
+    });
+  },
+
   resetGame: () => set({
     inventory: [],
     unlockedPortals: [1],
     currentBranch: null,
     answeredQuestions: [],
     cooldownNodes: {},
+    branch1ItemMap: getRandomBranch1Items(),
+    branch1Failed: false,
     viewState: 'START',
     activeNodeId: null,
     lockedPortalTarget: null,

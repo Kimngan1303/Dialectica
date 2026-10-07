@@ -4,6 +4,7 @@ import MainCanvas from './components/3d/MainCanvas';
 import QuestionOverlay from './components/ui/QuestionOverlay';
 import RewardOverlay from './components/ui/RewardOverlay';
 import GateGuardianModal from './components/ui/GateGuardianModal';
+import Branch1FailModal from './components/ui/Branch1FailModal';
 import Level2Minigame from './components/2d/Level2Minigame';
 import Level3Minigame from './components/2d/Level3Minigame';
 import EndingSlideshow from './components/2d/EndingSlideshow';
@@ -50,6 +51,7 @@ function App() {
         <QuestionOverlay />
         <RewardOverlay />
         <GateGuardianModal />
+        <Branch1FailModal />
 
         {/* Top Right HUD */}
         <div style={{ pointerEvents: 'auto' }}>

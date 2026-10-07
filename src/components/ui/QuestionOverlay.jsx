@@ -13,7 +13,9 @@ const QuestionOverlay = () => {
     setViewState, 
     currentBranch,
     answerQuestion,
-    setRewardPopup
+    setRewardPopup,
+    branch1ItemMap,
+    setBranch1Failed
   } = useGameStore();
 
   const [answeredState, setAnsweredState] = useState(null); // 'correct', 'wrong', null
@@ -30,21 +32,25 @@ const QuestionOverlay = () => {
   const question = questionsData[activeNodeId];
   if (!question) return null;
 
+  const effectiveRewardItemId = currentBranch === 1
+    ? (branch1ItemMap[question.id] || null)
+    : question.rewardItemId;
+
   const triggerWin = () => {
     playGameSfx('correct');
     setAnsweredState('correct');
     answerQuestion(question.id, true);
 
     setTimeout(() => {
-      if (question.rewardItemId) {
+      if (effectiveRewardItemId) {
         const itemDef = {
-          id: question.rewardItemId,
-          name: question.rewardItemId === 'stone' ? 'Bản thể Khách quan' :
-                question.rewardItemId === 'mirror' ? 'Gương Phản ánh Tư duy' :
-                question.rewardItemId === 'gear' ? 'Bánh răng Quy luật' : 'Khế ước Thực tiễn',
-          icon: question.rewardItemId === 'stone' ? '💎' :
-                question.rewardItemId === 'mirror' ? '🪞' :
-                question.rewardItemId === 'gear' ? '⚙️' : '📜',
+          id: effectiveRewardItemId,
+          name: effectiveRewardItemId === 'stone' ? 'Bản thể Khách quan' :
+                effectiveRewardItemId === 'mirror' ? 'Gương Phản ánh Tư duy' :
+                effectiveRewardItemId === 'gear' ? 'Bánh răng Quy luật' : 'Khế ước Thực tiễn',
+          icon: effectiveRewardItemId === 'stone' ? '💎' :
+                effectiveRewardItemId === 'mirror' ? '🪞' :
+                effectiveRewardItemId === 'gear' ? '⚙️' : '📜',
         };
         setRewardPopup(itemDef);
       } else {
@@ -56,9 +62,20 @@ const QuestionOverlay = () => {
   const triggerLose = (exit = true) => {
     playGameSfx('wrong');
     setAnsweredState('wrong');
-    if (currentBranch !== 'BOSS') {
+
+    if (currentBranch === 1) {
+      answerQuestion(question.id, false);
+      if (effectiveRewardItemId === 'stone' || effectiveRewardItemId === 'mirror') {
+        setTimeout(() => {
+          closeOverlay();
+          setBranch1Failed(true);
+        }, 1200);
+        return;
+      }
+    } else if (currentBranch !== 'BOSS') {
       answerQuestion(question.id, false);
     }
+
     if (exit) {
       setTimeout(() => {
         closeOverlay();
@@ -150,7 +167,7 @@ const QuestionOverlay = () => {
             })}
           </div>
 
-          {answeredState === 'correct' && !question.rewardItemId && (
+          {answeredState === 'correct' && !effectiveRewardItemId && (
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="mt-4 text-center text-success fw-bold fs-4">
               ✨ Câu trả lời chính xác!
             </motion.div>

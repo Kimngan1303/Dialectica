@@ -135,7 +135,7 @@ const Level2Minigame = () => {
 
     const handleExit = () => {
         playGameSfx('unlock');
-        setRewardPopup({ id: 'badge2', name: 'Chìa Khóa Bước Nhảy', icon: '🗝️', targetViewState: 'HUB' });
+        setRewardPopup({ id: 'badge2', name: 'Chìa khóa Bước nhảy tri thức', icon: '🗝️', targetViewState: 'HUB' });
         setViewState('HUB');
     };
 

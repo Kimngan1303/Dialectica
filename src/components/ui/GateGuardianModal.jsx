@@ -27,7 +27,7 @@ const GateGuardianModal = () => {
                    : 'Kho Tàng Tối Thượng (Cung Điện Chân Lý)';
                    
   const keyName = lockedPortalTarget === 2 ? 'Chìa khóa Nhãn quan Duy vật' 
-                : lockedPortalTarget === 3 ? 'Chìa Khóa Bước Nhảy' 
+                : lockedPortalTarget === 3 ? 'Chìa khóa Bước nhảy tri thức' 
                 : 'Chìa khóa Bánh xe Lịch sử';
 
   return (
@@ -60,7 +60,7 @@ const GateGuardianModal = () => {
             NGƯỜI GÁC CỔNG BIỆN CHỨNG
           </h2>
           <p className="fs-5 text-white mb-4 lh-lg" style={{ fontStyle: 'normal', color: '#fef08a' }}>
-            "Hỡi người tìm kiếm chân lý... Để khai mở cánh cổng tiến vào <strong>{branchName}</strong>, bạn cần đúc kết thành quả tri thức và rèn đúc thành công <strong>{keyName}</strong> tại Lò Luyện.<br/>
+            "Hỡi người tìm kiếm chân lý... Để khai mở cánh cổng tiến vào <strong>{branchName}</strong>, bạn cần <strong>{keyName}</strong>.<br/>
             Cánh cổng này chỉ mở ra trước quy luật biện chứng khách quan và sự chuyển hóa về chất.<br/>
             Bạn đã sẵn sàng khai mở cảnh giới mới chưa?"
           </p>

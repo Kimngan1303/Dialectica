@@ -521,7 +521,7 @@ const HubPortals = () => {
         branchId={3}
         name="Nhánh 3: Lý Luận Nhận Thức"
         subtitle="Thực Tiễn & Chân Lý"
-        requiredItems="Chìa khóa Bước nhảy"
+        requiredItems="Chìa khóa Bước nhảy tri thức"
       />
       <Portal
         position={[16, 0, 0]}

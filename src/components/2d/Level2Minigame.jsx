@@ -128,6 +128,11 @@ const Level2Minigame = () => {
     // Handle Victory
     const handleWin = useCallback(() => {
         if (stateRef.current.winTriggered) return;
+        const currentCollected = stateRef.current.gems.filter(g => g.collected).length;
+        if (currentCollected < 3) {
+            showToast(`⚠️ Chưa đủ 3 Tinh Thể! Cần thu thập đủ cả 3 Tinh Thể (Đang có: ${currentCollected}/3) để hoàn thành!`);
+            return;
+        }
         stateRef.current.winTriggered = true;
         playGameSfx('correct');
         setGameState('VICTORY');
@@ -288,7 +293,16 @@ const Level2Minigame = () => {
 
                     // Check if Summit Platform
                     if (plat.type === 'summit') {
-                        handleWin();
+                        const currentCollected = state.gems.filter(g => g.collected).length;
+                        if (currentCollected >= 3) {
+                            handleWin();
+                        } else {
+                            if (!state.lastSummitWarn || Date.now() - state.lastSummitWarn > 2500) {
+                                state.lastSummitWarn = Date.now();
+                                showToast(`🔒 Đỉnh Cao bị khóa! Cần đủ 3 Tinh Thể Biện Chứng (Đang có: ${currentCollected}/3)`);
+                                playGameSfx('wrong');
+                            }
+                        }
                     }
 
                     // Update Checkpoint as player climbs higher
@@ -433,19 +447,27 @@ const Level2Minigame = () => {
                     ctx.strokeRect(plat.x, plat.y - pulse, plat.w, plat.h + pulse);
                 } else if (plat.type === 'summit') {
                     // Summit Platform
-                    ctx.fillStyle = '#260a12';
+                    const currentCollected = state.gems.filter(g => g.collected).length;
+                    const isUnlocked = currentCollected >= 3;
+
+                    ctx.fillStyle = isUnlocked ? '#260a12' : '#18040a';
                     ctx.fillRect(plat.x, plat.y, plat.w, plat.h);
-                    ctx.strokeStyle = '#fbbf24';
+                    ctx.strokeStyle = isUnlocked ? '#fbbf24' : '#ef4444';
                     ctx.lineWidth = 3;
-                    ctx.shadowColor = '#f59e0b';
+                    ctx.shadowColor = isUnlocked ? '#f59e0b' : '#ef4444';
                     ctx.shadowBlur = 25;
                     ctx.strokeRect(plat.x, plat.y, plat.w, plat.h);
 
                     // Altar of Truth Totem on the summit
-                    ctx.fillStyle = '#fbbf24';
+                    ctx.fillStyle = isUnlocked ? '#fbbf24' : '#f87171';
                     ctx.font = 'bold 36px serif';
                     ctx.textAlign = 'center';
-                    ctx.fillText('🏛️', plat.x + plat.w / 2, plat.y - 15);
+                    ctx.fillText(isUnlocked ? '🏛️' : '🔒', plat.x + plat.w / 2, plat.y - 15);
+
+                    // Status text above altar
+                    ctx.font = 'bold 12px sans-serif';
+                    ctx.fillStyle = isUnlocked ? '#34d399' : '#fca5a5';
+                    ctx.fillText(isUnlocked ? '✨ ĐỈNH CAO ĐÃ MỞ (BƯỚC LÊN ĐỂ CHIẾN THẮNG)' : `🔒 CẦN ĐỦ 3 TINH THỂ (${currentCollected}/3)`, plat.x + plat.w / 2, plat.y - 55);
                 } else {
                     // Normal / Moving platform
                     ctx.fillStyle = plat.type === 'moving' ? '#3b111c' : '#2b0b14';
